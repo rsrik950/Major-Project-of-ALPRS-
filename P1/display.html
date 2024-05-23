@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Display</title>
+</head>
+
+<body>
+    <center>
+        <h2>Displaying Record</h2>
+        <table>
+            <? var tableData = getSheetData(); ?>
+                <? for (var i = 0; i < tableData.length; i++) { ?>
+                    <? if (i == 0) { ?>
+                        <tr>
+                            <? for (var j = 0; j < tableData[i].length; j++) { ?>
+                                <th>
+                                    <?= tableData[i][j] ?>
+                                </th>
+                                <? } ?>
+                        </tr>
+                        <? } else { ?>
+                            <tr>
+                                <? for (var j = 0; j < tableData[i].length; j++) { ?>
+                                    <td>
+                                        <?= tableData[i][j] ?>
+                                    </td>
+                                    <? } ?>
+                            </tr>
+                            <? } ?>
+                                <? } ?>
+        </table>
+    </center>
+
+    <!-- Place your iframe here -->
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTkvYBaX6oYwAmWsithjb48TK0qOslCUz2XkUa6zaZGOIGKevWnupFrCa-RufRwt-j2oBSY8zv2mIeq/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+</body>
+
+</html>

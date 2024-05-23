@@ -1,0 +1,21 @@
+function doPost(e) {
+    try {
+        var sheet = SpreadsheetApp.openById('YOUR_SPREADSHEET_ID').getActiveSheet();
+        var data = e.parameter;
+
+        if (data.image) {
+            var blob = Utilities.newBlob(Utilities.base64Decode(data.image), 'image/jpeg', 'image.jpg');
+            var folder = DriveApp.getFolderById('YOUR_FOLDER_ID');
+            var imageFile = folder.createFile(blob);
+            data.imageUrl = imageFile.getUrl();
+        }
+
+        // Append data to the Google Sheets document
+        sheet.appendRow([data.name, data.email, data.imageUrl /* Add other form data here */ ]);
+
+        return ContentService.createTextOutput('Data uploaded successfully.');
+    } catch (error) {
+        console.error(error);
+        return ContentService.createTextOutput('Error: ' + error.message).setMimeType(ContentService.MimeType.TEXT);
+    }
+}

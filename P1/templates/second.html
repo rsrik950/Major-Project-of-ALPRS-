@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://c1.wallpaperflare.com/preview/958/708/20/car-vehicle-licence-plate-number-plate.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        
+        header {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            margin: 20px;
+            padding: 20px;
+            background: linear-gradient(45deg, skyblue, white);
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid #ddd;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            font-size: 28px;
+        }
+
+        .card p {
+            color: #666;
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 36px;
+            background-color: skyblue;
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #5c170f;
+            transform: scale(1.05);
+        }
+
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2em;
+            margin: 0 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, skyblue, white);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:hover {
+            background-color: #ff8c00;
+            transform: scale(1.1);
+        }
+
+        .active {
+            font-weight: bold;
+            background-color: #5c170f;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .black-text {
+            color: black;
+        }
+
+        /* Style for the link */
+        nav a[href="https://script.google.com/macros/s/AKfycbxkSbeOtC6TlMp6R-r3Cb66O8lprCsXHEXywFOOC1fxGRAWw1YXb7OPjAOgOP6T8E4K/exec"] {
+            color: black;
+            font-size: 1.2em;
+            margin: 0 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, skyblue, white);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover effect for the link */
+        nav a[href="https://script.google.com/macros/s/AKfycbxkSbeOtC6TlMp6R-r3Cb66O8lprCsXHEXywFOOC1fxGRAWw1YXb7OPjAOgOP6T8E4K/exec"]:hover {
+            background-color: #ff8c00;
+            transform: scale(1.1);
+        }
+
+        /* Style for the button */
+        nav a[href="https://script.google.com/macros/s/AKfycbxkSbeOtC6TlMp6R-r3Cb66O8lprCsXHEXywFOOC1fxGRAWw1YXb7OPjAOgOP6T8E4K/exec"] button {
+            padding: 12px 24px;
+            border-radius: 50px;
+            background-color: skyblue;
+            color: black;
+            text-decoration: none;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover effect for the button */
+        nav a[href="https://script.google.com/macros/s/AKfycbxkSbeOtC6TlMp6R-r3Cb66O8lprCsXHEXywFOOC1fxGRAWw1YXb7OPjAOgOP6T8E4K/exec"] button:hover {
+            background-color: #5c170f;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="active"><strong>Home</strong></a>
+                <a href="https://script.google.com/macros/s/AKfycbznLzWBL6l6gVrGarOTITSk3YnxMEFEyc5_PlW5zTLA1zEUpTufCh-UD85eIBIuqeha/exec" id= "appscript" style="font-weight: bold;">Manually enter</a>
+                <a href="/camera" id="camera"><strong>Camera</strong></a>
+                <a href="/history" id="history"><strong>History</strong></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card fadeIn black-text">
+            <h1>Welcome to our Web Application</h1>
+            <p>The project employs Flask for web development and handling HTTP requests. OpenCV is utilized for image processing tasks such as license plate detection. YOLOv algorithm aids in real-time object detection, specifically for recognizing license plates. Users can upload images containing license plates for processing. Extracted license plate information is then utilized for vehicle registration purposes. The methodology involves integrating Flask, OpenCV, and YOLOv to enable efficient license plate recognition and registration functionalities in the web application.</p>
+            <div style="text-align: center;">
+                <a href="/registration" class="btn"><strong>Register Now</strong></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

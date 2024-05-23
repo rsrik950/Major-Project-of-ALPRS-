@@ -1,0 +1,14 @@
+let url = ''; // Set your URL here
+let form = document.querySelector('#form');
+
+form.addEventListener("submit", (e) => {
+    let d = new FormData(form);
+    fetch(url, {
+        method: "POST",
+        body: d
+    })
+    .then((res) => res.text())
+    .then((finalRes) => console.log(finalRes))
+    .catch((error) => console.error('Error:', error)); // Add error handling
+    e.preventDefault();
+});

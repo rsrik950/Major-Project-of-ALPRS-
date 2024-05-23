@@ -1,0 +1,36 @@
+// Define the Google Sheet and sheet name
+let sheet = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1RlRluFwOHv6i9XLSZP75svuqd24sR53aZBh1YQWqLvc/edit#gid=0');
+let sheetName = sheet.getSheetByName('Sheet1');
+
+// Define the folder ID where you want to store uploaded files
+let folderId = "1pRkE9lr6d_KDDrx4vU8JHfQSs2qd3CpE"; // Replace "YOUR_FOLDER_ID" with the actual ID of your folder
+
+// Define the doPost function to handle POST requests
+function doPost(e) {
+  try {
+    let data = e.parameter;
+
+    // Parse JSON data if available
+    if (e.postData && e.postData.type === "application/json") {
+      let obj = JSON.parse(e.postData.contents);
+      let dcode = Utilities.base64Decode(obj.base64);
+      let blob = Utilities.newBlob(dcode, obj.type, obj.name);
+
+      // Create the file in the specified folder
+      let folder = DriveApp.getFolderById(folderId);
+      let newFile = folder.createFile(blob);
+
+      // Get the URL of the uploaded file
+      let link = newFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW).getDownloadUrl();
+      data.imageUrl = link; // Add image URL to data object
+    }
+
+    // Append row with form data including image URL
+    sheetName.appendRow([data.regNumber, data.regOwner, data.address, data.makersClass, data.vehicleClass, data.manufactureDate, data.dateofregistration, data.regVaild, data.capacity, data.fuelType, data.state, data.imageUrl]);
+
+    return ContentService.createTextOutput("Data and image uploaded successfully.");
+  } catch (err) {
+    console.error(err); // Log the error for debugging
+    return ContentService.createTextOutput("Error: " + err.message).setMimeType(ContentService.MimeType.TEXT);
+  }
+}

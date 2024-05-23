@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: skyblue;
+            padding-top: 50px;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        
+        h1 {
+            color: #007bff;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 25px;
+            border: 1px solid #ced4da;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        
+        select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8"><path fill="#007bff" d="M7 8L0.3 0H13.7L7 8z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 12px;
+        }
+        
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        #successMessage {
+            display: none;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .return-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .return-button button {
+            background-color: #fff;
+            color: #007bff;
+            padding: 12px 24px;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .return-button button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form action='/registration' id='form'>
+            <h1>Vehicle Registration</h1>
+
+            <label for="plate_number">License Number</label>
+            <input type="text" id="plate_number" name="regNumber" required>
+
+            <label for="owner_name">Owner Name</label>
+            <input type="text" id="owner_name" name="regOwner" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="makers_class">Maker's Class</label>
+            <input type="text" id="makers_class" name="makersClass" required>
+
+            <label for="vehicle_class">Vehicle Class</label>
+            <input type="text" id="vehicle_class" name="vehicleClass" required>
+
+            <label for="manufacture_date">Mth.Yr.of Mfg</label>
+            <input type="date" id="manufacture_date" name="manufactureDate" required>
+
+            <label for="fuel_type">Fuel Used</label>
+            <select id="fuel_type" name="fuelType" required>
+                <option ></option>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+            </select>
+
+            <label for="state">State</label>
+            <select id="state" name="state" required>
+                <option ></option>
+                <option value="Andaman and Nicobar Islands ">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh (AP - 5)">Andhra Pradesh </option>
+                <option value="Arunachal Pradesh (AR - 7)">Arunachal Pradesh </option>
+                <option value="Assam (AS - 78)">Assam </option>
+                <option value="Bihar (BR - 80)">Bihar </option>
+                <option value="Chandigarh (CH - 160)">Chandigarh </option>
+                <option value="Chhattisgarh (CT - 49)">Chhattisgarh </option>
+                <option value="Dadra and Nagar Haveli (DN - 396)">Dadra and Nagar Haveli </option>
+                <option value="Daman and Diu (DD - 396)">Daman and Diu </option>
+                <option value="Delhi (DL - 110)">Delhi </option>
+                <option value="Goa (GA - 403)">Goa </option>
+                <option value="Gujarat (GJ - 364)">Gujarat </option>
+                <option value="Haryana (HR - 134)">Haryana </option>
+                <option value="Himachal Pradesh (HP - 171)">Himachal Pradesh </option>
+                <option value="Jammu and Kashmir (JK - 192)">Jammu and Kashmir</option>
+                <option value="Jharkhand (JH - 83)">Jharkhand </option>
+                <option value="Karnataka (KA - 560)">Karnataka </option>
+                <option value="Kerala (KL - 682)">Kerala </option>
+                <option value="Ladakh (LA - 194)">Ladakh </option>
+                <option value="Lakshadweep (LD - 682)">Lakshadweep </option>
+                <option value="Madhya Pradesh (MP - 462)">Madhya Pradesh </option>
+                <option value="Maharashtra (MH - 400)">Maharashtra </option>
+                <option value="Manipur (MN - 795)">Manipur </option>
+                <option value="Meghalaya (ML - 793)">Meghalaya </option>
+                <option value="Mizoram (MZ - 796)">Mizoram </option>
+                <option value="Nagaland (NL - 797)">Nagaland </option>
+                <option value="Odisha (OD - 751)">Odisha </option>
+                <option value="Puducherry (PY - 605)">Puducherry </option>
+                <option value="Punjab (PB - 141)">Punjab </option>
+                <option value="Rajasthan (RJ - 302)">Rajasthan </option>
+                <option value="Sikkim (SK - 737)">Sikkim </option>
+                <option value="Tamil Nadu (TN - 600)">Tamil Nadu </option>
+                <option value="Telangana (TG - 500)">Telangana </option>
+                <option value="Tripura (TR - 799)">Tripura </option>
+                <option value="Uttar Pradesh (UP - 201)">Uttar Pradesh </option>
+                <option value="Uttarakhand (UK - 248)">Uttarakhand </option>
+                <option value="West Bengal (WB - 700)">West Bengal </option>
+            </select>
+
+            <label for="imageUrl"> Plate Number</label>
+            <input type="text" id="imageUrl" name="imageUrl"  required>
+
+            <button type="submit" name="btn">Register</button>
+            <div id="successMessage">Data successfully registered!</div>
+        </form>
+    </div>
+
+    <a href="/second" class="return-button">
+        <button onclick="goBack()">Back</button>
+        </div>
+
+        <script>
+            let url = 'https://script.google.com/macros/s/AKfycbyO71LuwS8lvgyutD-SAzai-Jg73vJBpKhAT6b7NgK5zXvjVEvK92DSM9OPbXNGEP1S/exec'; // Set your Google Apps Script URL here
+            let form = document.querySelector('#form');
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let formData = new FormData(form);
+                fetch(url, {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then((res) => res.text())
+                    .then((finalRes) => {
+                        console.log(finalRes);
+                        document.getElementById('successMessage').style.display = 'block';
+                        // Optionally reset the form after successful submission
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Handle errors if any
+                    });
+            });
+        </script>
+
+</body>
+
+</html>
